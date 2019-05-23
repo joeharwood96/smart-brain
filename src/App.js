@@ -77,9 +77,11 @@ class App extends Component {
 
   onSubmit = () => {
     this.setState({imgURL: this.state.input});
-      fetch('http://localhost:3000/imageurl', {
+      fetch('https://safe-tundra-71175.herokuapp.com/imageurl', {
         method: 'post',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
             input: this.state.input
         })
@@ -87,9 +89,11 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if(response){
-          fetch('http://localhost:3000/image', {
+          fetch('https://safe-tundra-71175.herokuapp.com/image', {
             method: 'put',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+              'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 id: this.state.user.id
             })

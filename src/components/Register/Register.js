@@ -2,6 +2,7 @@ import React from 'react';
 
 
 class Register extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state  = {
@@ -24,9 +25,11 @@ class Register extends React.Component {
     }
 
     onSubmitSignin = () => {
-        fetch('http://localhost:3000/register', {
+        fetch('https://safe-tundra-71175.herokuapp.com/register', {
             method: 'post',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 email: this.state.email,
                 password: this.state.password,
